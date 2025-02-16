@@ -37,8 +37,8 @@ on:
         value: ${{ jobs.build-and-test.outputs.deployFilesArtifactName }}
 
 env:
-  powerShellModuleName: 'ScriptModuleRepositoryTemplate'
-  powerShellModuleDirectoryPath: './src/ScriptModuleRepositoryTemplate'
+  powerShellModuleName: 'PwshLinkding'
+  powerShellModuleDirectoryPath: './src/PwshLinkding'
   deployFilesDirectoryPath: './deploy'
   moduleArtifactName: 'ModuleArtifact'
   moduleArtifactDirectoryPath: './artifacts/Module'
