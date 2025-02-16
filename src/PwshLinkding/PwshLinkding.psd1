@@ -63,10 +63,10 @@
   # Modules to import as nested modules of the module specified in RootModule/ModuleToProcess
   # NestedModules = @()
 
-  # Functions to export from this module. For best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
-  # TODO: Update the functions list and delete this TODO comment.
   FunctionsToExport = @(
     'Get-LinkdingBookmark'
+    'New-LinkdingBookmark'
+    'Set-LinkdingBookmark'
   )
 
   # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
