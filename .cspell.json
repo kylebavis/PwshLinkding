@@ -36,6 +36,7 @@
 		"pwsh", // PowerShell Core
 		"linkding", // Linkding, the app this project works with
 		"Bavis", // Module author
+		"kylebavis" // Module author
 		"yzhang" // devcontainer author
 	]
 }
