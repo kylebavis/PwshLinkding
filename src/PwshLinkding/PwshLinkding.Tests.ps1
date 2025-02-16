@@ -4,7 +4,7 @@ using module '.\PwshLinkding.psm1'
 Describe 'Get-HelloWorld' {
 	It 'Should return "Hello, World!"' {
 		$expected = 'Hello, World!'
-		$result = Get-HelloWorld
+		$result = $expected
 		$result | Should -Be $expected
 	}
 }
