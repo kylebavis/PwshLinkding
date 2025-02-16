@@ -3,7 +3,7 @@
 @{
 
   # Script module or binary module file associated with this manifest.
-  RootModule = '__NewModuleName__.psm1'
+  RootModule = 'PwshLinkding.psm1'
 
   # Version number of this module. This will be updated automatically by the build and deployment pipelines.
   ModuleVersion = '0.0.0'
@@ -12,20 +12,20 @@
   # CompatiblePSEditions = @()
 
   # ID used to uniquely identify this module
-  GUID = '__NewModuleGuid__'
+  GUID = 'a27d0a32-3e7c-4b32-b552-d6ffee88913b'
 
   # Author of this module
-  Author = '__IndividualOrOrganizationName__'
+  Author = 'Kyle Bavis'
 
   # Company or vendor of this module
-  CompanyName = '__IndividualOrOrganizationName__'
+  CompanyName = 'Kyle Bavis'
 
   # Copyright statement for this module
-  Copyright = '(c) __IndividualOrOrganizationName__. All rights reserved.'
+  Copyright = '(c) Kyle Bavis. All rights reserved.'
 
   # Description of the functionality provided by this module
   # TODO: Update the description and delete this TODO comment.
-  Description = '__NewModuleName__ module.'
+  Description = 'PwshLinkding module.'
 
   # Minimum version of the PowerShell engine required by this module
   # PowerShellVersion = ''

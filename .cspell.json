@@ -6,11 +6,8 @@
 	"version": "0.2",
 	"language": "en",
 	"ignorePaths": [
-		"**/_.gitattributes",
-		"**/_.gitignore",
-		"**/devcontainer.json",
-		"**/build-and-test-powershell-module.yml",
-		"**/build-test-and-deploy-powershell-module.yml"
+		".devcontainer/devcontainer.json",
+		".github/workflows/*.yml"
 	],
 	"words": [
 		"behaviour",
@@ -37,6 +34,6 @@
 		"nupkg", // NuGet package
 		"nunit", // .NET unit testing framework
 		"pwsh", // PowerShell Core
-		"yzhang" // GitHub action author
+		"linkding", // Linkding, the app this project works with
 	]
 }
