@@ -35,5 +35,6 @@
 		"nunit", // .NET unit testing framework
 		"pwsh", // PowerShell Core
 		"linkding", // Linkding, the app this project works with
+		"Bavis" // Module author
 	]
 }
