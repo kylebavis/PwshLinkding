@@ -1,13 +1,13 @@
 # UPDATE ME: This is just example code. Replace this file's contents with your module code.
 
-function New-LinkdingAuthHeader {
+function Get-LinkdingAuthHeader {
 	<#
 	.SYNOPSIS
 	Generates an authentication header object for the Linkding API.
 	.PARAMETER ApiKey
 	The API key to use for authentication.
 	.EXAMPLE
-	$authHeader = New-LinkdingAuthHeader -ApiKey "your-api-key"
+	$authHeader = Get-LinkdingAuthHeader -ApiKey "your-api-key"
 	#>
 	[CmdletBinding()]
 	Param (
@@ -62,11 +62,11 @@ function Get-LinkdingBookmark {
 		$encodedQuery =  [System.Uri]::EscapeDataString($Query)
 		$uri += "&q=$($encodedQuery)"
 	}
-	$initialResult = Invoke-RestMethod -Uri $uri -Headers (New-LinkdingAuthHeader -ApiKey $ApiKey)
+	$initialResult = Invoke-RestMethod -Uri $uri -Headers (Get-LinkdingAuthHeader -ApiKey $ApiKey)
 	# if the result is paginated, we need to fetch all pages.
 	$result = $initialResult.results
 	while ($initialResult.next) {
-		$initialResult = Invoke-RestMethod -Uri $initialResult.next -Headers (New-LinkdingAuthHeader -ApiKey $ApiKey)
+		$initialResult = Invoke-RestMethod -Uri $initialResult.next -Headers (Get-LinkdingAuthHeader -ApiKey $ApiKey)
 		$result += $initialResult.results
 	}
 
