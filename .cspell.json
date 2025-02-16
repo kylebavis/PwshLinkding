@@ -37,6 +37,9 @@
 		"linkding", // Linkding, the app this project works with
 		"Bavis", // Module author
 		"kylebavis", // Module author
-		"yzhang" // devcontainer author
+		"yzhang", // devcontainer author
+		"Linkdingbookmark", // Linkding bookmark
+		"unarchives", // Unarchive
+		"unarchived", // Unarchive
 	]
 }

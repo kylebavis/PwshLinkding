@@ -2,11 +2,11 @@
 
 This page is a list of _notable_ changes made in each version.
 
-## v0.0.1 - February 16, 2025
+## v0.1.2 - February 16, 2025
 
 Features:
 
-- Initial release; only the basics to get bookmarks for now.
+- Initial release; only the basics to get/create/delete/archive bookmarks for now.
 
 Fixes:
 
