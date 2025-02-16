@@ -45,29 +45,56 @@ function Get-LinkdingBookmark {
 		[string] $LinkdingUrl,
 		[Parameter(Mandatory = $true)]
 		[string] $ApiKey,
-		[Parameter(Mandatory = $false)]
+		[Parameter(Mandatory = $false, ParameterSetName = "Query")]
 		[string] $Query,
-		[Parameter(Mandatory = $false)]
+		[Parameter(Mandatory = $false, ParameterSetName = "Query")]
 		[int] $Limit = 100,
-		[Parameter()]
-		[switch] $Archived
+		[Parameter(ParameterSetName = "Query")]
+		[switch] $Archived,
+		[Parameter(Mandatory = $true, ParameterSetName = "Id")]
+		[int] $Id,
+		[Parameter(Mandatory = $true, ParameterSetName = "URL")]
+		[string] $URL
 	)
 
 	$uri = "$LinkdingUrl/api/bookmarks/"
-	if ($Archived) {
-		$uri += "archived/"
+	switch ($PSCmdlet.ParameterSetName) {
+		"Query" {
+			if ($Archived) {
+				$uri += "archived/"
+			}
+			$uri += "?limit=$Limit"
+			if ($Query) {
+				$encodedQuery = [System.Uri]::EscapeDataString($Query)
+				$uri += "&q=$($encodedQuery)"
+			}
+		}
+		"Id" {
+			$uri += "$($Id)/"
+		}
+		"URL" {
+			$url = [System.Uri]::EscapeDataString($URL)
+			$uri += "check/?url=$URL"
+		}
 	}
-	$uri += "?limit=$Limit"
-	if ($Query) {
-		$encodedQuery =  [System.Uri]::EscapeDataString($Query)
-		$uri += "&q=$($encodedQuery)"
-	}
+
+	Write-Verbose "Calling $uri"
 	$initialResult = Invoke-RestMethod -Uri $uri -Headers (Get-LinkdingAuthHeader -ApiKey $ApiKey)
 	# if the result is paginated, we need to fetch all pages.
-	$result = $initialResult.results
-	while ($initialResult.next) {
-		$initialResult = Invoke-RestMethod -Uri $initialResult.next -Headers (Get-LinkdingAuthHeader -ApiKey $ApiKey)
-		$result += $initialResult.results
+	switch ($PSCmdlet.ParameterSetName) {
+		"Query" {
+			$result = $initialResult.results
+			while ($initialResult.next) {
+				$initialResult = Invoke-RestMethod -Uri $initialResult.next -Headers (Get-LinkdingAuthHeader -ApiKey $ApiKey)
+				$result += $initialResult.results
+			}
+		}
+		"Id" {
+			$result = $initialResult
+		}
+		"URL" {
+			$result = $initialResult.bookmark
+		}
 	}
 
 	Write-Output $result
