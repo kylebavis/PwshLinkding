@@ -57,7 +57,7 @@ jobs:
       deployFilesArtifactName: ${{ env.deployFilesArtifactName }}
     steps:
       - name: Checkout the repo source code
-        uses: actions/checkout@v4
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0 # Fetch all history so that GitVersion can determine the version number.
 
@@ -66,16 +66,16 @@ jobs:
         run: $PSVersionTable
 
       - name: Run spellcheck
-        uses: streetsidesoftware/cspell-action@v5
+        uses: streetsidesoftware/cspell-action@6f3c77c1406bc930f944ba97e9801a22e42caf58 # v9.1.0
 
       - name: Install GitVersion
-        uses: gittools/actions/gitversion/setup@v0
+        uses: gittools/actions/gitversion/setup@7417b1089e2c7de93510f1901d656ddf60bb024f # v4.7.0
         with:
-          versionSpec: '5.x'
+          versionSpec: '6.x'
 
       - name: Get git metadata used to determine new version number
         id: git-version
-        uses: gittools/actions/gitversion/execute@v0
+        uses: gittools/actions/gitversion/execute@7417b1089e2c7de93510f1901d656ddf60bb024f # v4.7.0
 
       - name: Determine the new version number
         id: version-number
@@ -152,7 +152,7 @@ jobs:
       - name: Add code coverage report to PR
         # Adding the code coverage report is not supported for manual workflow runs.
         if: github.event_name != 'workflow_dispatch'
-        uses: madrapps/jacoco-report@v1.6.1
+        uses: madrapps/jacoco-report@e51ce1f46f7f8b5331593f935e59cbaf44b84920 # v1.8.0
         with:
           paths: code-coverage-jacoco.xml
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -205,13 +205,13 @@ jobs:
           & git push origin $newVersionTag
 
       - name: Upload module artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: ${{ env.moduleArtifactName }}
           path: ${{ env.moduleArtifactDirectoryPath }}
 
       - name: Upload deploy files artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: ${{ env.deployFilesArtifactName }}
           path: ${{ env.deployFilesArtifactDirectoryPath }}
