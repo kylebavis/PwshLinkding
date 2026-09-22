@@ -65,8 +65,22 @@
 
   FunctionsToExport = @(
     'Get-LinkdingBookmark'
+    'Get-LinkdingBookmarkCheck'
     'New-LinkdingBookmark'
     'Set-LinkdingBookmark'
+    'Remove-LinkdingBookmark'
+    'Get-LinkdingBookmarkAsset'
+    'Save-LinkdingBookmarkAsset'
+    'Add-LinkdingBookmarkAsset'
+    'Remove-LinkdingBookmarkAsset'
+    'Get-LinkdingTag'
+    'New-LinkdingTag'
+    'Remove-LinkdingTag'
+    'Get-LinkdingBundle'
+    'New-LinkdingBundle'
+    'Set-LinkdingBundle'
+    'Remove-LinkdingBundle'
+    'Get-LinkdingUserProfile'
   )
 
   # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
