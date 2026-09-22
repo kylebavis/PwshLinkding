@@ -90,8 +90,8 @@ jobs:
             $newVersionNumber = $manuallyProvidedVersionNumber
           }
 
-          # The preReleaseTag is empty when building the default branch, so manually create a prerelease version number if needed.
-          if ([string]::IsNullOrWhiteSpace($prereleaseLabel)) {
+          # GitVersion 6 gives a numeric-only preReleaseTag (e.g. "1") on the default branch, which PSGallery rejects, so create one if needed.
+          if ($prereleaseLabel -notmatch '^[a-zA-Z]') {
             [string] $dateTime = (Get-Date -Format 'yyyyMMddTHHmmss')
             $prereleaseLabel = 'CI' + $dateTime + 'SHA' + '${{ steps.git-version.outputs.shortSha }}'
           }
