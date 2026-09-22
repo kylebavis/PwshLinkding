@@ -11,9 +11,11 @@
 	],
 	"words": [
 		"behaviour",
+		"datetime",
 		"gif",
 		"gifs",
 		"hashtable",
+		"pscustomobject",
 		"remoting",
 		"runspace",
 		"runspaces"
@@ -41,5 +43,6 @@
 		"Linkdingbookmark", // Linkding bookmark
 		"unarchives", // Unarchive
 		"unarchived", // Unarchive
+		"unarchiving", // Unarchive
 	]
 }
