@@ -3,7 +3,7 @@ name: build-and-deploy
 on:
   push:
     branches: main
-    paths: [ "src/**", "build/**", "deploy/**", ".github/workflows/**", ".cspell.json" ]
+    paths: [ "src/**", "build/**", "deploy/**", ".github/workflows/**" ]
 
   # Allows you to run this workflow manually from the Actions tab.
   workflow_dispatch:

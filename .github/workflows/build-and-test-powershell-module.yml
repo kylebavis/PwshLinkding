@@ -65,9 +65,12 @@ jobs:
         shell: pwsh
         run: $PSVersionTable
 
+<<<<<<< Updated upstream
       - name: Run spellcheck
         uses: streetsidesoftware/cspell-action@6f3c77c1406bc930f944ba97e9801a22e42caf58 # v9.1.0
 
+=======
+>>>>>>> Stashed changes
       - name: Install GitVersion
         uses: gittools/actions/gitversion/setup@7417b1089e2c7de93510f1901d656ddf60bb024f # v4.7.0
         with:
