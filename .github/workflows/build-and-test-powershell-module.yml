@@ -66,13 +66,13 @@ jobs:
         run: $PSVersionTable
 
       - name: Install GitVersion
-        uses: gittools/actions/gitversion/setup@v4.7.0
+        uses: gittools/actions/gitversion/setup@v5.0.0
         with:
           versionSpec: '6.x'
 
       - name: Get git metadata used to determine new version number
         id: git-version
-        uses: gittools/actions/gitversion/execute@v4.7.0
+        uses: gittools/actions/gitversion/execute@v5.0.0
 
       - name: Determine the new version number
         id: version-number
