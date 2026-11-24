@@ -68,7 +68,7 @@ jobs:
       - name: Install GitVersion
         uses: gittools/actions/gitversion/setup@v5.0.0
         with:
-          versionSpec: '6.x'
+          versionSpec: '7.0.x'
 
       - name: Get git metadata used to determine new version number
         id: git-version
@@ -87,7 +87,7 @@ jobs:
             $newVersionNumber = $manuallyProvidedVersionNumber
           }
 
-          # GitVersion 6 gives a numeric-only preReleaseTag (e.g. "1") on the default branch, which PSGallery rejects, so create one if needed.
+          # GitVersion gives a numeric-only preReleaseTag (e.g. "1") on the default branch, which PSGallery rejects, so create one if needed.
           if ($prereleaseLabel -notmatch '^[a-zA-Z]') {
             [string] $dateTime = (Get-Date -Format 'yyyyMMddTHHmmss')
             $prereleaseLabel = 'CI' + $dateTime + 'SHA' + '${{ steps.git-version.outputs.shortSha }}'
